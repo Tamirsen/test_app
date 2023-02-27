@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  provider_a:
+    build:
+      context: ./provider_a
+      dockerfile: Dockerfile
+    ports:
+      - "8989:8989"
+    environment:
+      PATH: path/to/provider_a.json
+  provider_b:
+    build:
+      context: ./provider_b
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    environment:
+      PATH: path/to/provider_a.json
+  airflow:
+    build:
+      context: ./airflow
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
